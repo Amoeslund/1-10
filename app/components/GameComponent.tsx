@@ -44,7 +44,7 @@ export default function GameComponent() {
       const response = await fetch(`/api/join-game`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ gameId, playerName, gameTitle }),
+        body: JSON.stringify({ gameId, playerName }),
       })
       const data = await response.json()
       if (response.ok) {
@@ -93,7 +93,7 @@ export default function GameComponent() {
           onChange={(e) => setGameId(e.target.value)}
           className="flex-grow"
         />
-        <Button onClick={joinGame} disabled={!gameId || !playerName || !gameTitle}>
+        <Button onClick={joinGame} disabled={!gameId || !playerName}>
           Join Game
         </Button>
       </div>
